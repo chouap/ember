@@ -1,0 +1,1 @@
+Emberapp.ApplicationAdapter = DS.RESTAdapter;

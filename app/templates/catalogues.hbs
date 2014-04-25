@@ -1,0 +1,30 @@
+<h3>Liste des catalogues</h3>
+<p>{{#link-to 'catalogue.create'}}Nouveau{{/link-to}}</p>
+<table class="table table-hover">
+    <tr>
+        <th>Support</th>
+        <th>Diffuseur</th>
+        <th>Format</th>
+        <th>Catalogue</th>
+        <th>DRM active</th>
+        <th>Actions</th>
+    </tr>
+    {{#if model}}
+        {{#each model}}
+        <tr>
+            <td>{{this.nom}}</td>
+            <td>{{this.diff}}</td>
+            <td>{{this.format_diffuseur}}</td>
+            <td>{{this.catalogue}}</td>
+            <td>{{this.drm_active}}</td>
+            <td>
+                {{#link-to 'catalogue.detail' this}}Voir{{/link-to}} - {{#link-to 'catalogue.edit' this}}Modifier{{/link-to}} - <a href="#" {{action removeItem this}}>Supprimer</a>
+            </td>
+        </tr>
+        {{/each}}
+    {{else}}
+        <tr>
+            <td colspan="6">Aucun résultat</td>
+        </tr>
+    {{/if}}
+</table>
